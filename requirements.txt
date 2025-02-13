@@ -1,0 +1,9 @@
+jupyterlab
+numpy
+pandas
+geopandas
+pycairo
+leaflet
+folium
+matplotlib
+mapclassify

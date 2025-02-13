@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "gtfs-to-geojson": "^3.7.9"
+  }
+}
