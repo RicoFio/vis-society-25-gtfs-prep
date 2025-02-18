@@ -8,6 +8,7 @@
     "coordinatePrecision": 5,
     "outputType": "agency",
     "outputFormat": "lines-buffer",
+    "bufferSizeMeters": 50,
     "startDate": "20250201",
     "endDate": "20250401",
     "verbose": true,
