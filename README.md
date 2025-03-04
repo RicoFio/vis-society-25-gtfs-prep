@@ -1,4 +1,6 @@
 # MBTA GTFS Prep for the Vis-Society Class 2025
+You can find this repo at: [HERE](https://github.com/RicoFio/vis-society-25-gtfs-prep)
+
 This is a small repo to show how we can convert GTFS ZIP archives published by the MBTA as documented [here](https://github.com/mbta/gtfs-documentation) into stops and lines in GeoJSON format. 
 For this, we use a node package called [`gtfs-to-geojson`](https://github.com/blinktaginc/gtfs-to-geojson), allowing us to create `config.json` files in which we specify, which data we seek to extract from the GTFS zip file.
 In the `original data` folder, you can find all the extracted geometries for stops, stops-with-buffer, lines, and lines-and-stops.

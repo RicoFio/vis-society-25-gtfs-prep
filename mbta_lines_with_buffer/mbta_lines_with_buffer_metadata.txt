@@ -1,5 +1,5 @@
-Title: MBTA Transit Routes from GTFS
-Table: mbta_lines_with_buffer
+Title: MBTA Transit Routes from GTFS with 50m Buffer
+Table: mbta_lines_with_buffer(_deduplicated)
 Type: geojson
 
 Data Source:
@@ -15,53 +15,69 @@ Extracted Using:
     Repository: https://github.com/blinktaginc/gtfs-to-geojson
 
 Description:
-This GeoJSON dataset was generated from the MBTA’s GTFS feed. It contains transit route data represented as multipolygon geometries. Each feature corresponds to a transit route served by the MBTA, with associated attributes including route names, descriptions, colors, and URLs. The data is derived from the GTFS routes.txt file and converted into a GeoJSON MULTIPOLYGON format using the gtfs-to-geojson tool.
+This GeoJSON dataset was generated from the MBTA’s GTFS feed. It contains transit route data represented as polygon geometries, with a 40-meter buffer applied around each route to approximate service areas. Each feature corresponds to a transit route served by the MBTA, with associated attributes including route names, descriptions, colors, and URLs. The data is derived from the GTFS `routes.txt` file and converted into a GeoJSON POLYGON format using the `gtfs-to-geojson` tool. 
+
+The dataset includes two versions:
+- **mbta_lines_with_buffer.geojson**: Includes all transit routes with a 50-meter buffer.
+- **mbta_lines_with_buffer_deduplicated.geojson**: A deduplicated version where routes with the same `route_long_name` field (3 routes) have been removed.
 
 Attributes:
     agency_name:
         Type: String
         Description: The name of the transit agency operating the route.
-    
+        Example: MBTA
+
     route_id:
         Type: String
         Description: The unique identifier for the transit route.
-    
+        Example: Red
+
     agency_id:
         Type: String
         Description: The identifier for the transit agency.
-    
+        Example: 1
+
     route_short_name:
         Type: String
-        Description: The short name of the transit route (e.g., "Red").
-    
+        Description: The short name of the transit route, if applicable.
+        Example: B
+
     route_long_name:
         Type: String
-        Description: The full name of the transit route (e.g., "Red Line").
-    
+        Description: The full name of the transit route.
+        Example: Green Line B
+
     route_desc:
         Type: String
         Description: A brief description of the transit route.
-    
+        Example: Rapid Transit
+
     route_type:
         Type: Integer
         Description: The type of transit service (e.g., 0 for light rail, 1 for subway, etc.), following the GTFS specification.
-    
+        Example: 1
+
     route_url:
         Type: String
         Description: A URL linking to additional information about the route on the MBTA website.
-    
+        Example: https://www.mbta.com/schedules/Green-B
+
     route_color:
         Type: String
         Description: The hexadecimal color code associated with the route.
-    
+        Example: #00843D
+
     route_sort_order:
         Type: Integer
         Description: An order value used for sorting routes.
-    
+        Example: 10032
+
     network_id:
         Type: String
         Description: An identifier for the transit network classification (e.g., "rapid_transit", "m_rapid_transit").
-    
+        Example: rapid_transit
+
     geometry:
         Type: GeoJSON Polygon
-        Description: The geographic representation of the transit route as a series of connected polygons with a 50 meter buffer around them.
+        Description: The geographic representation of the transit route with a 50-meter buffer applied around it.
+
